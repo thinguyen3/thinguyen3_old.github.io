@@ -1,1 +1,162 @@
-Hello World
+<!DOCTYPE html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- Load d3.js -->
+    <script src="scripts/d3.js"></script>
+    <title>Flight Delay</title>
+    <style>
+
+        h1 {
+            color: blue;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 250%;
+            }
+        table, th, td {
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+        #t01 {
+            width: 100%;    
+            background-color: #2b927c;
+            height: 80px;
+        }
+        #t02 tr:nth-child(even) {
+            background-color: #eee;
+        }
+        #t02 tr:nth-child(odd) {
+            background-color: #fff;
+        }
+        #t02 th {
+            background-color: rgb(113, 187, 152);
+            color: white;
+        }
+        #t03 th {
+            width: 50%; 
+            background-color: rgb(113, 187, 152);
+            color: white;
+        }
+        #t02 {
+            margin-top: 30px;
+            margin-bottom: 30px;
+            margin-left: 250px;
+        }
+        #t03 {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 150px;
+        }
+
+        h2 {
+            color:blue;
+            font-size: 130%;
+        }
+        h3 {
+            color:rgb(207, 57, 57);
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 80px;
+
+        }
+        img {
+            position: absolute;
+            left: 30px;
+            top: 32px;
+            z-index: 1;
+        }
+        body {
+            padding-top: 0px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            padding-left: 20px;
+            font-size: large;
+        }
+        
+    </style>
+
+</head>
+
+<body>
+    <h1>
+    <table id="t01">
+        <tr>
+          <th>U.S. Flight Delay Dashboard
+            <img src="resources/NJCU.png" width="100" height="70">
+          </th>
+        </tr>
+      
+    </table>
+    <h2>Introduction and Data Definition</h2>
+    <p>Air travels have a significant role in the economy of agencies and airports. One of the important modern life challenges of airports and airline agencies is flight delay. A flight delay is when an airline flight takes off and/or lands later than its scheduled time. The Federal Aviation Administration (FAA) considers a flight to be delayed when it is 15 minutes later than its scheduled time. Flight delay is inevitable and it plays an important role in both profits and loss of the airlines.</p>
+    <p>I used HTML5, CSS6, Javascript, and D3 to create this dashboard, the goal is to take a look inside into the U.S flight delay data by using many various visualizations such as chart, donut, force, choropleth map to answer these questions: how does the total number of flight delay change, which airport has the most flight delay, the relationship between origin and destination airports.</p>
+    <p>The data is collected from the Bureau of Transportation Statistics, Govt. of the USA. This data is open-sourced under U.S. Govt. Works. This dataset contains all the flights in the month of January 2019 and January 2020. There are around 400,000 rows in this file and 21 feature columns indicating the features of the flight including information about origin airport, destination airport, airplane information, departure time, and arrival time. The data used to create this dashboard is sourced from <a href="https://www.kaggle.com/divyansh22/february-flight-delay-prediction#Feb_2020_ontime.csv">U.S Flight Delay Dataset</a></p>
+    <p>There are 21 columns in the dataset, but I only used columns which are listed below:</p>
+    <table id="t02">
+        <tr>
+            <th>Column name</th>
+            <th>Description</th> 
+        </tr>
+        <tr>
+            <td>OP_CARRIER</td>
+            <td>Code assigned by IATA and commonly used to identify a carrier</td>
+        </tr>
+        <tr>
+            <td>ORIGIN</td>
+            <td>Origin Airport</td>
+        </tr>
+        <tr>
+            <td>DEST</td>
+            <td>Destination Airport</td>
+        </tr>
+        <tr>
+            <td>DEP_DEL15</td>
+            <td>Departure Delay Indicator, 15 Minutes or More (1=Yes, 0=No)</td>
+        </tr>
+    </table> 
+    <h2>Flight Delay Visualization</h2>
+  
+
+    <table id="t03">
+        <tr>
+            <th>Flight Delay and Total Flight</th>
+            <th>Flight Delay with the Airlines</th> 
+        </tr>
+        <tr>
+            <td>
+                <select id="barDD" onchange="dropDownHandler()">
+                    <option value="data/Visua1.1.csv">Delay flight</option>
+                    <option value="data/Visua1.2.csv">Total flight</option>
+                </select>
+                <div id="div_bar" style="text-align:center;"></div>
+                <script src="scripts/bar_chart.js"></script>
+            </td>
+            <td>
+                <div id="div_donut" style="text-align:center;"></div>
+                <script src="scripts/donut.js"></script>
+            </td>
+        </tr>
+        
+ 
+    </table> 
+    <h3><em>Figure 1: Bar chart and Donut chart showing Flight Delay, Total Flight, and Flight Delay within the Airlines</em></h3>
+
+        <div id="div_force"></div>
+        <script src="scripts/force.js"></script>
+    <h3><em>Figure 2: Force Layout Graph showing the flight delay from the origin and the destination between the top 20 airports</em></h3>
+
+    <!-- <h3><em>Choropleth map showing the flight delay in the U.S. States</em></h3> -->
+        <div id="div_map"></div>
+        <script src="scripts/map.js"></script>
+    <h3><em>Figure 3: Choropleth map showing the flight delay in the U.S. States</em></h3>
+    
+    <h2>Conclusion</h2>
+
+    <ol>
+        <li>The bar chart illustrates the total flight delay and the total flight in the U.S. in January 2019 and 2020. Overall, it is clear that the figures for total flights had an increase from 583,985 to 607,346 between the periods. However, the number of flight delay fell over the period from 105,222 in January 2019 to 82,285 in January 2020.</li>
+        <li>The donut chart compares the flight delay within the airlines. In January 2020, American Airlines (AA) had the most flight delay with 11,348 flights, Skywest Airlines (OO) kept the second with 10,692 flights. The third airline that had more flight delay belongs to Southwest Airlines (WN) with 10,321 flight delay.</li>
+        <li>The force layout graph shows the network visualization between the top 20 airports. We can see that all airports had a connection with the others.</li>
+        <li>The choropleth map represents statistical flight delay data through various shading patterns on each state in the US. In this case, Texas, California, Arizona, Florida,... show the flight delay higher than other states.</li>
+    </ol>
+
+    <h2>Reference</h2>
+    <p>US Flight Data for the month of Jan 2019 and Jan 2020: <a href="https://www.kaggle.com/divyansh22/february-flight-delay-prediction#Feb_2020_ontime.csv">U.S Flight Delay Dataset</a> </p>
+
+</body>
