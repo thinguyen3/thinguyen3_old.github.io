@@ -1,0 +1,174 @@
+h1 { 
+  font-size: 1.4em;
+}
+
+h2 { 
+  font-size: 1.2em;
+}
+
+h3 { 
+  font-size: 1.1em;
+  font-style: italic;
+}
+
+body { 
+  font-family: Helvetica, Sans, sans-serif;
+  width:780px;
+	padding:10px;
+  /* background:#d0eba8; */
+  margin:0 auto;
+  border: solid blue;
+  border-width: thin;
+  display:block;
+  box-sizing: border-box;
+}
+
+.name {
+  font-size: 150%;
+}
+
+#image_container {
+  position: relative;
+}
+
+#logo {
+  position: absolute;
+  left: -20px;
+  top: -40px;
+  width: 200px;
+  height: 200px;
+}
+
+.content {
+  max-width: 500px;
+  margin: auto;
+}
+
+.sideimage { 
+  margin-left: 1em;
+  margin-bottom: 1em;
+  float: left;
+  height: 400px;
+  width: 400px;
+}
+
+.quotes li { 
+  margin-bottom: 0.2em;
+}
+
+h2 { 
+  clear: both;
+  padding-top: 1em; 
+  border-top-width: thin;
+  border-top-style: solid;
+}
+
+.author { 
+  font-size: 1.2em;
+  font-weight: bold;
+  clear: both;
+  margin-top: 1em;
+}
+
+.author a { 
+  margin-right: 1em;
+}
+
+
+a:link { 
+  color: #0000FF;
+  text-decoration: none; 
+}
+
+a:visited {
+  color: #0000FF;
+  text-decoration: none; 
+}
+
+a:hover {
+  color: firebrick; 
+  text-decoration: underline; 
+}
+
+ul { 
+  list-style-type: square;
+}
+
+li { 
+}
+
+table { 
+  border-style: none;
+  font-size: 0.9em;
+  margin-left: 2em;
+  background-color: lightblue;
+}
+
+
+tr { 
+  background: #eee;
+}
+
+tr:hover { 
+  background: #ccc;
+}
+
+th { 
+  border-style: none;
+  background: lightblue;
+  padding: 0.5em;
+  text-align: left;
+  /* color: white; */
+}
+
+td { 
+  border-style: none;
+  padding: 0.5em;
+}
+
+.covers { 
+  font-size: 1em;
+}
+
+.covers td { 
+  background: white;
+  border="0";
+  cellpadding="2";
+  cellspacing="2";
+}
+
+form { 
+  background: #dbcac6;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+dt { 
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+dd { 
+  margin-bottom: 0.5em;
+}
+
+.question { 
+  margin-top: 2em;
+  font-weight: bold;
+}
+
+.question:before { 
+  content: "Question: ";
+  font-style: italic;
+  margin-right: 0.5em;
+}
+
+.answer:before { 
+  content: "Answer: ";
+  font-style: italic;
+  margin-right: 0.5em;
+}
